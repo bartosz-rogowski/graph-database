@@ -1,10 +1,6 @@
 from flask import Flask
 from py2neo import Graph, Node, Relationship
-import pandas as pd
-from numpy import isnan
-import networkx as nx
-from matplotlib.pyplot import figure
-from datetime import date
+
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'

@@ -1,0 +1,46 @@
+body {
+	/* background: #880808; */
+	color: #d3ac9d;
+	background-image: url(./pexels-florin-capilnean-4507866.jpg);
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 28px;
+	text-align: center;
+}
+
+a:hover {
+	text-shadow: 2px 2px rgb(126, 31, 14);
+}
+
+a{
+	font-family: "Miama";
+	text-decoration: none;
+	color: #d3ac9d !important;
+	margin-bottom: 5px;
+	transition : .5s;
+	margin-right: 26px;
+	font-size: 42px;
+}
+
+a.navbar-brand
+{
+	font-size: 46px;
+	color: white !important;
+}
+
+td
+{
+	font-family: "Miama";
+	font-size: 42px;
+	color: white;
+}
+
+.navbar-custom
+{
+	background-color: rgba(0, 0, 0, 0.33);
+}
+
+.table
+{
+	background-color: rgba(0, 0, 0, 0.33);
+	border-style: double;
+}

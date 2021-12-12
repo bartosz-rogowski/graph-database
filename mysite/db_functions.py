@@ -1,8 +1,15 @@
 from mysite import db
+import pandas as pd
+from numpy import isnan
+import networkx as nx
+from matplotlib.pyplot import figure
+from datetime import date
+from flask import Response
 
 def delete_all():
 	db.run("MATCH (n) DETACH DELETE n")
 	
+
 def delete(person):
 	p_ID = find_person(person)
 	if not p_ID is None:
@@ -121,12 +128,13 @@ def plot_graph():
 					   reltype = df['type'][i],
 					  )
 
-	figure(figsize=(12, 12))
+	fig = figure(figsize=(11, 10))
 	pos = nx.shell_layout(G, scale = 2)
 	nx.draw(G, pos, with_labels=True)
 	labels = nx.get_edge_attributes(G, 'reltype')
 	nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
-	return G
+	fig.patch.set_alpha(0.15)
+	return fig
 
 def find_person(person):
 	query = "MATCH (n:Person {fname: $fname, lname: $lname, born: $born}) RETURN ID(n)"
