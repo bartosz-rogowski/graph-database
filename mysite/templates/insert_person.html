@@ -58,6 +58,15 @@
                     {{ form.year_of_death(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
+            <div class="form-group">
+                {{ form.mother.label(class="form-control-label") }}
+                <select class="form-select">
+                    <option value="">choose mother</option>
+                    {% for choice in form.mother.choices %}
+                        <option value=" {{choice[0]}} ">{{choice[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
             <small class="text-muted">Fields marked with asterisk (*) are necessary.</small>
         </fieldset>
         <div class="form-group">
