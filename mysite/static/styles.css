@@ -44,3 +44,13 @@ td
 	background-color: rgba(0, 0, 0, 0.33);
 	border-style: double;
 }
+
+.btn
+{
+	transition : .5s;
+}
+
+.btn:hover
+{
+	color: rgb(126, 31, 14);
+}

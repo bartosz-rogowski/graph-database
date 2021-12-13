@@ -8,7 +8,8 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  
 	{% if title %}
 		<title>{{ title }}</title>
 	{% else %}
@@ -28,7 +29,7 @@
 			  <div class="navbar-nav mr-auto">
 				<a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
         <a class="nav-item nav-link" href="{{ url_for('tree') }}">Tree</a>
-        <a class="nav-item nav-link" href="{{ url_for('about') }}">Insert person</a>
+        <a class="nav-item nav-link" href="{{ url_for('insert_person') }}">Insert person</a>
         <a class="nav-item nav-link" href="{{ url_for('about') }}">Find relations</a>
         <a class="nav-item nav-link" href="{{ url_for('about') }}">Delete person</a>
 				<a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
