@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    {% if not results %}
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Find relations</legend>
+            <div class="form-group">
+                <label for="person1">Choose first person:</label><br>
+                <select name="person1" id="person1" class="form-select">
+                    <option value="">choose person</option>
+                    {% for option in options %}
+                        <option value="{{option[0]}}">{{option[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="person2">Choose second person:</label><br>
+                <select name="person2" id="person2" class="form-select">
+                    <option value="">choose parent</option>
+                    {% for option in options %}
+                        <option value="{{option[0]}}">{{option[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
+    {% else %}
+        {% for result in results %}
+            <p style="font-size: 50px; font-family: 'Miama'; display: inline; color: white; padding-right: 2px;">
+                {{ result[0] }}
+            </p>
+            {{ result[1] }} 
+            <p style="font-size: 50px; font-family: 'Miama'; display: inline; color: white; padding-left: 2px;padding-right: 2px;">
+                {{ result[2] }}
+            </p>
+            <br>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}

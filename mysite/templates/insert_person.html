@@ -59,11 +59,29 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.mother.label(class="form-control-label") }}
-                <select class="form-select">
-                    <option value="">choose mother</option>
-                    {% for choice in form.mother.choices %}
-                        <option value=" {{choice[0]}} ">{{choice[1]}}</option>
+                <label for="parent1">Choose first parent:</label><br>
+                <select name="parent1" id="parent1" class="form-select">
+                    <option value="">choose parent</option>
+                    {% for option in options %}
+                        <option value="{{option[0]}}">{{option[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="parent2">Choose second parent:</label><br>
+                <select name="parent2" id="parent2" class="form-select">
+                    <option value="">choose parent</option>
+                    {% for option in options %}
+                        <option value="{{option[0]}}">{{option[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="spouse">Choose spouse:</label><br>
+                <select name="spouse" id="spouse" class="form-select">
+                    <option value="">choose spouse</option>
+                    {% for option in options %}
+                        <option value="{{option[0]}}">{{option[1]}}</option>
                     {% endfor %}
                 </select>
             </div>

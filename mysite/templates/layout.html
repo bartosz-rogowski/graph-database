@@ -30,7 +30,7 @@
 				<a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
         <a class="nav-item nav-link" href="{{ url_for('tree') }}">Tree</a>
         <a class="nav-item nav-link" href="{{ url_for('insert_person') }}">Insert person</a>
-        <a class="nav-item nav-link" href="{{ url_for('about') }}">Find relations</a>
+        <a class="nav-item nav-link" href="{{ url_for('find_relations') }}">Find relations</a>
         <a class="nav-item nav-link" href="{{ url_for('about') }}">Delete person</a>
 				<a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
 			  </div>
@@ -42,7 +42,7 @@
       <div class="row justify-content-center">
         
         <!-- <img src="/plot.png" alt="my plot"> -->
-        <div class="col-md-8">
+        <div class="col-md-12">
           {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
             {% for category, message in messages %}

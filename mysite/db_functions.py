@@ -203,10 +203,17 @@ def find_connections(person1, person2):
 			RETURN path
 		"""
 		result = db.run(query, p1_ID=p1_ID, p2_ID=p2_ID).data()
+		result_list = []
 		for r in result[0]['path'].relationships:
-			print(r.nodes[0]['fname'], end=' ')
-			print(type(r).__name__, end=' ')
-			print(r.nodes[1]['fname'])
+			# print(r.nodes[0]['fname'], end=' ')
+			# print(type(r).__name__, end=' ')
+			# print(r.nodes[1]['fname'])
+			result_list.append(
+				(f"{r.nodes[0]['fname']} {r.nodes[0]['lname']}", 
+				type(r).__name__, 
+				f"{r.nodes[1]['fname']} {r.nodes[1]['lname']}")
+			)
+		return result_list
 
 def get_parents(person):
 	p_ID = find_person(person)
