@@ -38,8 +38,9 @@ def add_mock_data():
 		{"fname": "Piotr", "lname": "Zduński", "born": 1984},
 		{"fname": "Paweł", "lname": "Zduński", "born": 1984},
 		{"fname": "Artur", "lname": "Rogowski", "born": 1969},
-		{"fname": "Katarzyna", "lname": "Filarska", "born": 1984},
+		{"fname": "Kinga", "lname": "Filarska", "born": 1984},
 		{"fname": "Hanna", "lname": "Wasiliak", "born": 1975, "died": 2011},
+		{"fname": "Magdalena", "lname": "Zduńska", "born": 2008}
 	]
 	
 	for person in people:
@@ -71,6 +72,9 @@ def add_mock_data():
 	
 	add_relationship(people[0], people[5], "HAS_DAUGHTER")
 	add_relationship(people[1], people[5], "HAS_DAUGHTER")
+
+	add_relationship(people[7], people[12], "HAS_DAUGHTER")
+	add_relationship(people[10], people[12], "HAS_DAUGHTER")
 		
 def get_dataframe_with_nodes():
 	result = db.run("MATCH (n) RETURN n").data()
@@ -78,6 +82,8 @@ def get_dataframe_with_nodes():
 	df = df.reindex(columns=['fname', 'lname', 'born', 'died'])
 	df.died = df.died.astype('Int64')
 	df.fillna(-1, inplace=True)
+	df = df.sort_values(by=['born'])
+	df = df.reset_index(drop=True)
 	return df
 	
 def get_dataframe_with_relationships():
@@ -139,10 +145,10 @@ def plot_graph():
 def find_person(person):
 	query = "MATCH (n:Person {fname: $fname, lname: $lname, born: $born}) RETURN ID(n)"
 	ID = db.run(query, 
-				   fname = person["fname"],
-				   lname = person["lname"],
-				   born  = person["born"]
-				  ).data()
+		fname = person["fname"],
+		lname = person["lname"],
+		born  = person["born"]
+	).data()
 	if len(ID) == 1:
 		return ID[0]["ID(n)"]
 	else:
@@ -151,7 +157,7 @@ def find_person(person):
 	
 def add_relationship(person1, person2, reltype, attr=None):
 	if person1 != person2:
-		if reltype in ["MARRIED", "HAS_SON", "HAS_DAUGHTER"]:
+		if reltype in ["MARRIED", "HAS_SON", "HAS_DAUGHTER", "HAS_CHILD"]:
 			query = "MATCH (n:Person {fname: $fname, lname: $lname, born: $born}) RETURN ID(n)"
 			p1_ID = find_person(person1)
 			p2_ID = find_person(person2)
@@ -204,10 +210,9 @@ def find_connections(person1, person2):
 		"""
 		result = db.run(query, p1_ID=p1_ID, p2_ID=p2_ID).data()
 		result_list = []
+		if not result:
+			return None
 		for r in result[0]['path'].relationships:
-			# print(r.nodes[0]['fname'], end=' ')
-			# print(type(r).__name__, end=' ')
-			# print(r.nodes[1]['fname'])
 			result_list.append(
 				(f"{r.nodes[0]['fname']} {r.nodes[0]['lname']}", 
 				type(r).__name__, 

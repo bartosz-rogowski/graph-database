@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Delete person</legend>
+            <div class="form-group">
+                <label for="person1">Choose person to remove:</label><br>
+                <select name="person1" id="person1" class="form-select">
+                    <option value="">choose person</option>
+                    {% for option in options %}
+                        <option value="{{option[0]}}">{{option[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

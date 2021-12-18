@@ -7,8 +7,13 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet"> 
   
 	{% if title %}
 		<title>{{ title }}</title>
@@ -27,21 +32,19 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarToggle">
 			  <div class="navbar-nav mr-auto">
-				<a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-        <a class="nav-item nav-link" href="{{ url_for('tree') }}">Tree</a>
-        <a class="nav-item nav-link" href="{{ url_for('insert_person') }}">Insert person</a>
-        <a class="nav-item nav-link" href="{{ url_for('find_relations') }}">Find relations</a>
-        <a class="nav-item nav-link" href="{{ url_for('about') }}">Delete person</a>
+				<a class="nav-item nav-link" href="{{ url_for('list_all') }}">List all</a>
+				<a class="nav-item nav-link" href="{{ url_for('graph') }}">Graph</a>
+				<a class="nav-item nav-link" href="{{ url_for('insert_person') }}">Insert person</a>
+				<a class="nav-item nav-link" href="{{ url_for('find_relations') }}">Find relations</a>
+				<a class="nav-item nav-link" href="{{ url_for('delete_person') }}">Delete person</a>
 				<a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
 			  </div>
 			</div>
 		  </div>
 		</nav>
 	  </header>
-	  <main role="main" class="container pt-5">
+	  <main role="main" class="container pt-4">
       <div class="row justify-content-center">
-        
-        <!-- <img src="/plot.png" alt="my plot"> -->
         <div class="col-md-12">
           {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}

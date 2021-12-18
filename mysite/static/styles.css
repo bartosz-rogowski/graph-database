@@ -1,35 +1,39 @@
 body {
 	/* background: #880808; */
-	color: #d3ac9d;
+	color: #fad5c7;
 	background-image: url(./pexels-florin-capilnean-4507866.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 28px;
 	text-align: center;
 }
 
 a:hover {
+	color: white !important;
 	text-shadow: 2px 2px rgb(126, 31, 14);
 }
 
 a{
-	font-family: "Miama";
+	font-family: 'Dancing Script', cursive;
 	text-decoration: none;
 	color: #d3ac9d !important;
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 	transition : .5s;
-	margin-right: 26px;
-	font-size: 42px;
+	margin-right: 15px;
+	font-size: 31px;
 }
 
 a.navbar-brand
 {
-	font-size: 46px;
+	font-size: 38px;
 	color: white !important;
 }
 
 td
 {
-	font-family: "Miama";
+	font-family: 'Dancing Script', cursive;
 	font-size: 42px;
 	color: white;
 }
@@ -37,6 +41,12 @@ td
 .navbar-custom
 {
 	background-color: rgba(0, 0, 0, 0.33);
+}
+
+form
+{
+	background-color: rgba(0, 0, 0, 0.33);
+	padding: 5px;
 }
 
 .table
@@ -53,4 +63,24 @@ td
 .btn:hover
 {
 	color: rgb(126, 31, 14);
+}
+
+p.names
+{
+	font-size: 36px; 
+	font-family: 'Dancing Script', cursive;
+	display: inline; 
+	color: white; 
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+small.text-muted
+{
+	color: white !important;
+}
+
+.form-check-input 
+{
+    margin-top: .8rem !important;
 }

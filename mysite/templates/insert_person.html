@@ -85,6 +85,19 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="form-group">
+                {{ form.year_of_marriage.label(class="form-control-label") }}
+                {% if form.year_of_marriage.errors %}
+                    {{ form.year_of_marriage(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.year_of_marriage.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.year_of_marriage(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
             <small class="text-muted">Fields marked with asterisk (*) are necessary.</small>
         </fieldset>
         <div class="form-group">

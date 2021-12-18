@@ -1,4 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
-
+Welcome to the page where you can create your own genealogical tree by adding people 
+(the elder in first order), display graph of that tree and find connections between 
+different members!
+<br><br>
+Here you can clean database:
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ form.clean_type.label }}</legend>
+            Choose cleaning type:<br>
+            {% for choice in form.clean_type.choices %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="clean_type" id="{{ choice[0] }}" value="{{ choice[0] }}">
+                    <label class="form-check-label" for="{{ choice[0] }}">
+                    {{ choice[1] }}
+                    </label>
+                </div>
+            {% endfor %}
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
+</div>
 {% endblock content %}
