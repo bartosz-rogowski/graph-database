@@ -138,8 +138,8 @@ def plot_graph():
 	pos = nx.shell_layout(G, scale = 2)
 	nx.draw(G, pos, with_labels=True)
 	labels = nx.get_edge_attributes(G, 'reltype')
-	nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
-	fig.patch.set_alpha(0.15)
+	nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, label_pos=0.6)
+	# fig.patch.set_alpha(0.15)
 	return fig
 
 def find_person(person):

@@ -58,9 +58,8 @@ def graph():
 	output = io.BytesIO()
 	FigureCanvas(fig).print_png(output)
 	
-	return Response(output.getvalue(), mimetype='image/png'), render_template('graph.html', 
-		title='Genealogical Tree / Graph'
-	)
+	response = Response(output.getvalue(), mimetype='image/png')
+	return response
 
 @app.route("/insert_person", methods=['GET', 'POST'])
 def insert_person():
@@ -77,7 +76,7 @@ def insert_person():
 			person = f"{request.form['first_name']},{request.form['last_name']},{request.form['year_of_birth']}"
 			if person in [p[0] for p in options]:
 				person = person.split(',')
-				flash(f"{person[0]} {person[1]} born in {person[2]} is already in the databse.", 'warning')
+				flash(f"{person[0]} {person[1]} born in {person[2]} is already in the databse.", 'danger')
 				return render_template('insert_person.html', 
 					title='Genealogical Tree / Insert person', 
 					form=form,
