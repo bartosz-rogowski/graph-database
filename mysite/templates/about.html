@@ -1,7 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>ABOUT PAGE</h1>
-    <p style="font-size: 50px; font-family: 'Miama'; padding-bottom: -100%; overflow: visible;
-    width: 97%; position: absolute; ">All of this is</p>
-    <br><p style="font-size: 40px;">TEMPORARY</p>
+     <ul class="list-group list-group-flush">
+        <li class="list-group-item my-dark-bg">
+            Data ought to be inserted in the order of family members' generations - elder first.
+        </li>
+        <li class="list-group-item my-dark-bg">
+            In order to clean database, go to main page (click on the logo).
+        </li>
+        <li class="list-group-item my-dark-bg">
+            There can only be one person with the same first name, last name and year of birth.
+        </li>
+        <li class="list-group-item my-dark-bg">
+            Validation is modest, so please make sure to enter the data correctly.
+        </li>
+      </ul>
+
+    <div class="text-center p-3 fixed-bottom" style="background-color: rgba(0, 0, 0, 0.3);">
+        Bartosz Rogowski<br>
+        Przetwarzanie danych w chmurach obliczeniowych 2021<br><br>
+        <small class="text-muted">
+            Do note that this is proof of concept type of project.
+        </small>
+    </div>
 {% endblock content %}
