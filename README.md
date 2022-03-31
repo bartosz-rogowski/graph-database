@@ -2,13 +2,15 @@
 
 Simple genealogical tree implementation within graph database and flask [project for "Data processing in computing clouds"]. 
 
-**https://genealogical-tree-1121.herokuapp.com/**
+# **https://genealogical-tree-1121.herokuapp.com/**
 
 ---
 
 ## Table of contents
 1. [Project description](#description)
 2. [Assumptions](#assumptions)
+3. [Functionality (endpoints description)](#endpoints)
+4. [Technology](#technology)
 
 ---
 
@@ -47,3 +49,28 @@ There can be a few types of relationships between the nodes:
 - number of entries (people) should be as small as possible for better quality of plotting graph (otherwise it would become unreadable)
 - plotting is made with Python module [`networkx`](https://networkx.org/), what brings some consequences: it's relatively easy in implementation, however layout of whole structure (positioning of nodes and relationships with their attributes) leaves a lot to be desired, nevertheless main functionality has been kept in order to graphically validate operations 
 - majority of methods as well as artwork on this webpage are rather straightforward and minimalistic (bear in mind **this is *proof of concept* type of project**).
+
+---
+
+## 3. Functionality (endpoints description) <a name="endpoints"></a>
+
+- `/` or `/home` - main page on which user can clean database in 2 ways:
+    - empty database
+    - empty database and fill with mock (test) data
+- `/list_all` - page with table of all entries (people) in database
+- `/graph.png` - page (being opened in a new tab) with graph containing all nodes (people) and relationships between them
+- `/insert_person` - page with a form to insert new person to database
+- `/find_relations` - page with a form to choose 2 people in order to find relations between them (in form of relationships between all nodes to get to each other - "from person to person"); if there is none, proper message is shown
+- `/delete_person` - page with a form to delete chosen person from database
+- `/about` - about page containing additional information
+
+---
+
+## 4. Technology <a name="technology"></a>
+
+- Python
+- flask (with `wtforms` module helpful while creating forms)
+- AuraDB (`Neo4j` database)
+- html+css
+- bootstrap
+- Heroku
