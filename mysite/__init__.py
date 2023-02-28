@@ -1,10 +1,15 @@
 from flask import Flask
 from py2neo import Graph, Node, Relationship
-
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'ce50bd8fbfbeb7391c109aca88e6ff16'
-db = Graph("neo4j+s://8d5ae205.databases.neo4j.io",
-	auth = ("neo4j", "URtjTjSqnpB2FoztE8tYDhU3ujIGy8WAvoAMZfrU9eE"))
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
+URI = os.getenv("DB_URI")
+LOGIN = os.getenv("DB_LOGIN")
+PASSWORD = os.getenv("DB_PASSWORD")
+db = Graph(
+	URI,
+	auth=(LOGIN, PASSWORD),
+)
 
 from mysite import routes
