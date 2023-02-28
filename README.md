@@ -2,7 +2,7 @@
 
 Simple genealogical tree implementation within graph database and flask [project for "Data processing in computing clouds"]. 
 
-# **https://genealogical-tree-1121.herokuapp.com/**
+# **https://genealogical-tree-1121.onrender.com/**
 
 ---
 
@@ -71,6 +71,6 @@ There can be a few types of relationships between the nodes:
 - Python
 - flask (with `wtforms` module helpful while creating forms)
 - AuraDB (`Neo4j` database)
-- html+css
+- HTML + CSS
 - bootstrap
-- Heroku
+- Render *(previously on Heroku)*
